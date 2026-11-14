@@ -1,0 +1,536 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Services | SpaceXplore</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #050817;
+    color: white;
+}
+
+/* NAVIGATION BAR */
+nav {
+    background: #080f25;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #24365d;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #36c5ff;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #36c5ff;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 430px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+
+    background:
+    linear-gradient(rgba(5,8,23,0.7), rgba(5,8,23,0.85)),
+    url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1800")
+    center/cover no-repeat;
+}
+
+.hero h1 {
+    font-size: 58px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #36c5ff;
+    text-shadow: 0 0 20px #36c5ff;
+}
+
+.hero p {
+    color: #d5def5;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+/* COMMON SECTION */
+section {
+    padding: 75px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.section-title span {
+    color: #36c5ff;
+}
+
+.section-description {
+    text-align: center;
+    color: #b5c1dc;
+    line-height: 1.8;
+    margin-bottom: 45px;
+}
+
+/* SERVICES GRID */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: #101b38;
+    padding: 32px 25px;
+    border: 1px solid #263b66;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: #36c5ff;
+    box-shadow: 0 0 20px rgba(54,197,255,0.2);
+}
+
+.service-card .icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    color: #36c5ff;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.service-card p {
+    color: #bdc9e1;
+    line-height: 1.8;
+}
+
+/* SPACE TECHNOLOGY SECTION */
+.technology {
+    background: #0a1229;
+}
+
+.tech-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.tech-image {
+    flex: 1;
+}
+
+.tech-image img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid #36c5ff;
+}
+
+.tech-text {
+    flex: 1;
+}
+
+.tech-text h2 {
+    color: #36c5ff;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.tech-text p {
+    color: #bdc9e1;
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+/* BENEFITS */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.benefit {
+    background: #111e3c;
+    padding: 30px 20px;
+    border-radius: 12px;
+    border: 1px solid #263b66;
+    text-align: center;
+}
+
+.benefit h3 {
+    color: #36c5ff;
+    margin-bottom: 12px;
+}
+
+.benefit p {
+    color: #bdc9e1;
+    line-height: 1.7;
+}
+
+/* CTA */
+.cta {
+    text-align: center;
+    background:
+    linear-gradient(rgba(5,8,23,0.8), rgba(5,8,23,0.9)),
+    url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1800")
+    center/cover no-repeat;
+    padding: 80px 20px;
+}
+
+.cta h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    color: #d5def5;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    background: #16b9f5;
+    color: #04101f;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #805cff;
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px #805cff;
+}
+
+/* FOOTER */
+footer {
+    background: #030611;
+    text-align: center;
+    padding: 30px 15px;
+    color: #aab6d0;
+    line-height: 2;
+}
+
+footer span {
+    color: #36c5ff;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .services-grid,
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tech-container {
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 600px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .services-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    .tech-image img {
+        height: 250px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav>
+
+    <div class="logo">SPACE<span>XPLORE</span> 🚀</div>
+
+    <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Services.html" class="active">Services</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="Education.html">Education</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+    </ul>
+
+</nav>
+
+<!-- HERO SECTION -->
+<header class="hero">
+
+    <div>
+        <h1>OUR <span>SERVICES</span></h1>
+
+        <p>
+            Discover Space Science, Technology and
+            the Wonders of the Universe.
+        </p>
+    </div>
+
+</header>
+
+<!-- SERVICES SECTION -->
+<section>
+
+    <h2 class="section-title">EXPLORE OUR <span>SERVICES</span></h2>
+
+    <p class="section-description">
+        Discover interesting information about space exploration
+        and modern space technology.
+    </p>
+
+    <div class="services-grid">
+
+        <div class="service-card">
+            <div class="icon">🔭</div>
+            <h3>Astronomy</h3>
+            <p>
+                Explore stars, planets, galaxies
+                and other objects in the universe.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">🚀</div>
+            <h3>Rocket Technology</h3>
+            <p>
+                Learn about rocket engines,
+                launch systems and spacecraft.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">🛰️</div>
+            <h3>Satellite Systems</h3>
+            <p>
+                Understand how satellites support
+                communication, navigation and weather forecasting.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">🪐</div>
+            <h3>Planet Exploration</h3>
+            <p>
+                Discover the planets, moons
+                and fascinating worlds in our Solar System.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">🌌</div>
+            <h3>Galaxy Research</h3>
+            <p>
+                Learn about galaxies, nebulae,
+                black holes and deep space.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">👨‍🚀</div>
+            <h3>Space Missions</h3>
+            <p>
+                Discover human spaceflight,
+                astronauts and robotic missions.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TECHNOLOGY SECTION -->
+<section class="technology">
+
+    <div class="tech-container">
+
+        <div class="tech-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=1000"
+            alt="Rocket Launch">
+
+        </div>
+
+        <div class="tech-text">
+
+            <h2>MODERN SPACE TECHNOLOGY</h2>
+
+            <p>
+                Space technology helps scientists explore
+                the universe and understand our planet.
+            </p>
+
+            <p>
+                Rockets, satellites, telescopes and robotic
+                spacecraft are important tools used in
+                modern space exploration.
+            </p>
+
+            <p>
+                SpaceXplore introduces these technologies
+                through educational information and
+                interesting facts.
+            </p>
+
+            <a href="Education.html" class="btn">
+                Learn More
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BENEFITS SECTION -->
+<section>
+
+    <h2 class="section-title">WHY EXPLORE <span>SPACE?</span></h2>
+
+    <p class="section-description">
+        Space exploration provides knowledge and opportunities
+        for the future.
+    </p>
+
+    <div class="benefits-grid">
+
+        <div class="benefit">
+            <h3>🔬 Scientific Discovery</h3>
+            <p>
+                Helps scientists understand planets,
+                stars and the universe.
+            </p>
+        </div>
+
+        <div class="benefit">
+            <h3>🌍 Earth Observation</h3>
+            <p>
+                Satellites help monitor weather,
+                climate and environmental changes.
+            </p>
+        </div>
+
+        <div class="benefit">
+            <h3>💡 Innovation</h3>
+            <p>
+                Encourages new technologies
+                and scientific developments.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta">
+
+    <h2>DISCOVER THE UNIVERSE!</h2>
+
+    <p>
+        Continue your journey and explore
+        amazing space photographs.
+    </p>
+
+    <a href="Gallery.html" class="btn">
+        Visit Space Gallery 🌌
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <h2>SPACE<span>XPLORE</span> 🚀</h2>
+
+    <p>Explore the Universe. Discover the Future.</p>
+
+    <p>© 2026 SpaceXplore | All Rights Reserved</p>
+
+    <p>Designed by Sithew ❤️</p>
+
+</footer>
+
+</body>
+</html>

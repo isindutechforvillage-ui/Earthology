@@ -1,0 +1,554 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About | SpaceXplore</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #050817;
+    color: white;
+}
+
+/* NAVIGATION BAR */
+nav {
+    background: #080f25;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #24365d;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #36c5ff;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #36c5ff;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 430px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+
+    background:
+    linear-gradient(rgba(5,8,23,0.75), rgba(5,8,23,0.85)),
+    url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1800")
+    center/cover no-repeat;
+}
+
+.hero h1 {
+    font-size: 58px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #36c5ff;
+    text-shadow: 0 0 20px #36c5ff;
+}
+
+.hero p {
+    color: #d5def5;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+/* COMMON SECTION */
+section {
+    padding: 75px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+.section-title span {
+    color: #36c5ff;
+}
+
+/* ABOUT CONTENT */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 30px;
+    color: #36c5ff;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #c2cce0;
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid #36c5ff;
+    box-shadow: 0 0 25px rgba(54,197,255,0.2);
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    background: #16b9f5;
+    color: #04101f;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #805cff;
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px #805cff;
+}
+
+/* MISSION AND VISION */
+.mission-section {
+    background: #0a1229;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.mission-card {
+    background: #111e3c;
+    padding: 35px;
+    border-radius: 15px;
+    border: 1px solid #263b66;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.mission-card:hover {
+    transform: translateY(-8px);
+    border-color: #36c5ff;
+    box-shadow: 0 0 20px rgba(54,197,255,0.2);
+}
+
+.mission-card .icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.mission-card h3 {
+    color: #36c5ff;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.mission-card p {
+    color: #bdc9e1;
+    line-height: 1.8;
+}
+
+/* WHAT WE EXPLORE */
+.explore-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.explore-card {
+    background: #101b38;
+    padding: 30px 22px;
+    border: 1px solid #263b66;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.explore-card:hover {
+    transform: translateY(-8px);
+    border-color: #805cff;
+    box-shadow: 0 0 20px rgba(128,92,255,0.2);
+}
+
+.explore-card .icon {
+    font-size: 45px;
+    margin-bottom: 18px;
+}
+
+.explore-card h3 {
+    color: #36c5ff;
+    margin-bottom: 12px;
+}
+
+.explore-card p {
+    color: #bdc9e1;
+    line-height: 1.7;
+}
+
+/* CTA SECTION */
+.cta {
+    text-align: center;
+    background:
+    linear-gradient(rgba(5,8,23,0.8), rgba(5,8,23,0.9)),
+    url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1800")
+    center/cover no-repeat;
+    padding: 80px 20px;
+}
+
+.cta h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    color: #d5def5;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* FOOTER */
+footer {
+    background: #030611;
+    text-align: center;
+    padding: 30px 15px;
+    color: #aab6d0;
+    line-height: 2;
+}
+
+footer span {
+    color: #36c5ff;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .about-container {
+        flex-direction: column;
+    }
+
+    .explore-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .mission-grid,
+    .explore-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    .about-image img {
+        height: 250px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav>
+
+    <div class="logo">SPACE<span>XPLORE</span> 🚀</div>
+
+    <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="About.html" class="active">About</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="Education.html">Education</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+    </ul>
+
+</nav>
+
+<!-- HERO SECTION -->
+<header class="hero">
+
+    <div>
+        <h1>ABOUT <span>SPACEXPLORE</span></h1>
+
+        <p>
+            Discover Our Story, Our Vision and Our Passion
+            for Exploring the Universe.
+        </p>
+    </div>
+
+</header>
+
+<!-- ABOUT SECTION -->
+<section>
+
+    <h2 class="section-title">WHO <span>WE ARE</span></h2>
+
+    <div class="about-container">
+
+        <div class="about-text">
+
+            <h2>Welcome to SpaceXplore!</h2>
+
+            <p>
+                SpaceXplore is an educational website
+                dedicated to space exploration, astronomy
+                and modern space technology.
+            </p>
+
+            <p>
+                Our website introduces visitors to planets,
+                stars, galaxies, spacecraft, satellites and
+                exciting discoveries beyond Earth.
+            </p>
+
+            <p>
+                We aim to make space knowledge interesting
+                and easy to understand for students and
+                anyone curious about the universe.
+            </p>
+
+            <a href="Education.html" class="btn">
+                Explore Space
+            </a>
+
+        </div>
+
+        <div class="about-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1000"
+            alt="Earth from Space">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MISSION AND VISION -->
+<section class="mission-section">
+
+    <h2 class="section-title">
+        OUR <span>MISSION & VISION</span>
+    </h2>
+
+    <div class="mission-grid">
+
+        <div class="mission-card">
+
+            <div class="icon">🎯</div>
+
+            <h3>Our Mission</h3>
+
+            <p>
+                Our mission is to provide useful and
+                understandable information about space,
+                astronomy and space technology while
+                encouraging curiosity and learning.
+            </p>
+
+        </div>
+
+        <div class="mission-card">
+
+            <div class="icon">🚀</div>
+
+            <h3>Our Vision</h3>
+
+            <p>
+                Our vision is to inspire people to discover
+                the universe, understand scientific
+                innovations and become interested in
+                the future of space exploration.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- WHAT WE EXPLORE -->
+<section>
+
+    <h2 class="section-title">
+        WHAT WE <span>EXPLORE</span>
+    </h2>
+
+    <p style="text-align:center; color:#aab6d0; margin-bottom:40px; line-height:1.8;">
+        Learn about different areas of space science and technology.
+    </p>
+
+    <div class="explore-grid">
+
+        <div class="explore-card">
+            <div class="icon">🪐</div>
+            <h3>Planets</h3>
+            <p>
+                Discover planets, moons and
+                the Solar System.
+            </p>
+        </div>
+
+        <div class="explore-card">
+            <div class="icon">🌌</div>
+            <h3>Galaxies</h3>
+            <p>
+                Explore stars, galaxies,
+                nebulae and deep space.
+            </p>
+        </div>
+
+        <div class="explore-card">
+            <div class="icon">🚀</div>
+            <h3>Rocket Technology</h3>
+            <p>
+                Learn how rockets and
+                spacecraft travel into space.
+            </p>
+        </div>
+
+        <div class="explore-card">
+            <div class="icon">🛰️</div>
+            <h3>Satellites</h3>
+            <p>
+                Understand satellite systems
+                and their important uses.
+            </p>
+        </div>
+
+        <div class="explore-card">
+            <div class="icon">🔭</div>
+            <h3>Astronomy</h3>
+            <p>
+                Discover how scientists
+                study objects in the universe.
+            </p>
+        </div>
+
+        <div class="explore-card">
+            <div class="icon">👨‍🚀</div>
+            <h3>Space Missions</h3>
+            <p>
+                Explore human spaceflight
+                and robotic missions.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta">
+
+    <h2>THE UNIVERSE IS WAITING!</h2>
+
+    <p>
+        Start your journey through space and discover
+        the amazing wonders of the universe.
+    </p>
+
+    <a href="Gallery.html" class="btn">
+        Explore Gallery 🌌
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <h2>SPACE<span>XPLORE</span> 🚀</h2>
+
+    <p>Explore the Universe. Discover the Future.</p>
+
+    <p>© 2026 SpaceXplore | All Rights Reserved</p>
+
+    <p>Designed by Sithew ❤️</p>
+
+</footer>
+
+</body>
+</html>

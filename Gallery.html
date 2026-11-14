@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gallery | SpaceXplore</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #050817;
+    color: white;
+}
+
+/* NAVIGATION BAR */
+nav {
+    background: #080f25;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #24365d;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #36c5ff;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #36c5ff;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+
+    background:
+    linear-gradient(rgba(5,8,23,0.7), rgba(5,8,23,0.85)),
+    url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1800")
+    center/cover no-repeat;
+}
+
+.hero h1 {
+    font-size: 58px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #36c5ff;
+    text-shadow: 0 0 20px #36c5ff;
+}
+
+.hero p {
+    color: #d5def5;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+/* GALLERY SECTION */
+section {
+    padding: 75px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 18px;
+}
+
+.section-title span {
+    color: #36c5ff;
+}
+
+.section-description {
+    text-align: center;
+    color: #b5c1dc;
+    line-height: 1.8;
+    margin-bottom: 45px;
+}
+
+/* GALLERY GRID */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid #263b66;
+    cursor: pointer;
+    background: #101b38;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+    display: block;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.12);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 22px 15px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+
+.gallery-caption h3 {
+    color: #36c5ff;
+    font-size: 21px;
+}
+
+/* IMAGE PREVIEW */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border: 2px solid #36c5ff;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(54,197,255,0.3);
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    font-size: 45px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close:hover {
+    color: #36c5ff;
+}
+
+/* CTA SECTION */
+.cta {
+    text-align: center;
+    background:
+    linear-gradient(rgba(5,8,23,0.8), rgba(5,8,23,0.9)),
+    url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1800")
+    center/cover no-repeat;
+    padding: 80px 20px;
+}
+
+.cta h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    color: #d5def5;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    background: #16b9f5;
+    color: #04101f;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #805cff;
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px #805cff;
+}
+
+/* FOOTER */
+footer {
+    background: #030611;
+    text-align: center;
+    padding: 30px 15px;
+    color: #aab6d0;
+    line-height: 2;
+}
+
+footer span {
+    color: #36c5ff;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    .gallery-item {
+        height: 260px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav>
+
+    <div class="logo">SPACE<span>XPLORE</span> 🚀</div>
+
+    <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Gallery.html" class="active">Gallery</a></li>
+        <li><a href="Education.html">Education</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+    </ul>
+
+</nav>
+
+<!-- HERO SECTION -->
+<header class="hero">
+
+    <div>
+        <h1>SPACE <span>GALLERY</span></h1>
+
+        <p>
+            Discover the Beauty and Wonders
+            of Our Amazing Universe.
+        </p>
+    </div>
+
+</header>
+
+<!-- GALLERY SECTION -->
+<section>
+
+    <h2 class="section-title">
+        EXPLORE THE <span>UNIVERSE</span>
+    </h2>
+
+    <p class="section-description">
+        Click on any image to view it in a larger size.
+    </p>
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=900"
+                 alt="Beautiful Galaxy">
+            <div class="gallery-caption">
+                <h3>Beautiful Galaxy</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=900"
+                 alt="Planet Earth">
+            <div class="gallery-caption">
+                <h3>Planet Earth</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=900"
+                 alt="Planet Mars">
+            <div class="gallery-caption">
+                <h3>Planet Mars</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=900"
+                 alt="Rocket Launch">
+            <div class="gallery-caption">
+                <h3>Rocket Launch</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900"
+                 alt="Earth from Space">
+            <div class="gallery-caption">
+                <h3>Earth from Space</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?w=900"
+                 alt="Deep Space">
+            <div class="gallery-caption">
+                <h3>Deep Space</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=900"
+                 alt="Starry Universe">
+            <div class="gallery-caption">
+                <h3>Starry Universe</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=900"
+                 alt="Nebula">
+            <div class="gallery-caption">
+                <h3>Space Nebula</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1614732484003-ef9881555dc3?w=900"
+                 alt="Planet in Space">
+            <div class="gallery-caption">
+                <h3>Planet Exploration</h3>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- IMAGE PREVIEW -->
+<div class="lightbox" id="lightbox">
+
+    <span class="close" id="closeBtn">&times;</span>
+
+    <img id="previewImage" src="" alt="Large Space Image">
+
+</div>
+
+<!-- CTA SECTION -->
+<section class="cta">
+
+    <h2>THE UNIVERSE IS BEAUTIFUL!</h2>
+
+    <p>
+        Continue exploring and discover
+        more about space and astronomy.
+    </p>
+
+    <a href="Education.html" class="btn">
+        Explore Space Education 🚀
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <h2>SPACE<span>XPLORE</span> 🚀</h2>
+
+    <p>Explore the Universe. Discover the Future.</p>
+
+    <p>© 2026 SpaceXplore | All Rights Reserved</p>
+
+    <p>Designed by Sithew ❤️</p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+
+const galleryImages = document.querySelectorAll(".gallery-item img");
+const lightbox = document.getElementById("lightbox");
+const previewImage = document.getElementById("previewImage");
+const closeBtn = document.getElementById("closeBtn");
+
+galleryImages.forEach(function(image) {
+
+    image.addEventListener("click", function() {
+
+        lightbox.style.display = "flex";
+        previewImage.src = image.src;
+        previewImage.alt = image.alt;
+
+    });
+
+});
+
+closeBtn.addEventListener("click", function() {
+    lightbox.style.display = "none";
+});
+
+lightbox.addEventListener("click", function(event) {
+
+    if (event.target === lightbox) {
+        lightbox.style.display = "none";
+    }
+
+});
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        lightbox.style.display = "none";
+    }
+
+});
+
+</script>
+
+</body>
+</html>

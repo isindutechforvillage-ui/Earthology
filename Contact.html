@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | SpaceXplore</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #050817;
+    color: white;
+    line-height: 1.6;
+}
+
+/* NAVIGATION */
+nav {
+    background: #080f25;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #24365d;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #36c5ff;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #36c5ff;
+}
+
+/* HERO */
+.hero {
+    min-height: 380px;
+    background:
+        linear-gradient(rgba(3,8,25,0.55), rgba(3,8,25,0.85)),
+        url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1800")
+        center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    color: #36c5ff;
+    text-shadow: 0 0 20px #168bc7;
+}
+
+.hero p {
+    font-size: 19px;
+    margin-top: 15px;
+    color: white;
+}
+
+/* MAIN SECTION */
+.contact-section {
+    padding: 70px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 34px;
+    color: #36c5ff;
+}
+
+.section-title p {
+    color: #c1cee8;
+    margin-top: 10px;
+}
+
+/* CONTACT INFORMATION */
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 50px;
+}
+
+.info-card {
+    background: #101b38;
+    border: 1px solid #263b66;
+    padding: 28px 15px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 0 20px rgba(54,197,255,0.2);
+}
+
+.info-card .icon {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.info-card h3 {
+    color: #36c5ff;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    color: #c1cee8;
+}
+
+/* CONTACT FORM */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: start;
+}
+
+.contact-image img {
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid #263b66;
+}
+
+.contact-form {
+    background: #101b38;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #263b66;
+}
+
+.contact-form h2 {
+    color: #36c5ff;
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 18px;
+    background: #080f25;
+    border: 1px solid #344d7c;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #36c5ff;
+    box-shadow: 0 0 8px rgba(54,197,255,0.3);
+}
+
+.contact-form textarea {
+    height: 130px;
+    resize: vertical;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 14px;
+    background: #16b9f5;
+    color: #050817;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #805cff;
+    color: white;
+}
+
+#message-status {
+    margin-top: 15px;
+    color: #36c5ff;
+    text-align: center;
+}
+
+/* SOCIAL MEDIA */
+.social {
+    text-align: center;
+    padding: 45px 20px;
+    background: #0a1229;
+}
+
+.social h2 {
+    color: #36c5ff;
+    margin-bottom: 15px;
+}
+
+.social a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background: #101b38;
+    border: 1px solid #263b66;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin: 7px;
+    transition: 0.3s;
+}
+
+.social a:hover {
+    background: #16b9f5;
+    color: #050817;
+}
+
+/* FOOTER */
+footer {
+    background: #030611;
+    text-align: center;
+    padding: 25px;
+    color: #aab8d2;
+    border-top: 1px solid #24365d;
+}
+
+footer span {
+    color: #36c5ff;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .contact-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 600px) {
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-section {
+        padding: 45px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">SPACE<span>XPLORE</span> 🚀</div>
+
+    <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="Education.html">Education</a></li>
+        <li><a href="Contact.html" class="active">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+    <div>
+        <h1>CONTACT US</h1>
+        <p>Have Questions About Space? Get in Touch With Us!</p>
+    </div>
+</header>
+
+<!-- CONTACT INFORMATION -->
+<section class="contact-section">
+
+    <div class="section-title">
+        <h2>Get In Touch</h2>
+        <p>We would love to hear from you.</p>
+    </div>
+
+    <div class="contact-info">
+
+        <div class="info-card">
+            <div class="icon">📧</div>
+            <h3>Email Us</h3>
+            <p>isindu.techforvillage@gmail.com</p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">📞</div>
+            <h3>Call Us</h3>
+            <p>+94 76 982 8204</p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">📍</div>
+            <h3>Our Location</h3>
+            <p>Sri Lanka</p>
+        </div>
+
+    </div>
+
+    <!-- FORM AND IMAGE -->
+    <div class="contact-container">
+
+        <div class="contact-image">
+            <img
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1000"
+                alt="Earth from Space">
+        </div>
+
+        <div class="contact-form">
+
+            <h2>Send Us a Message 🚀</h2>
+
+            <form id="contactForm">
+
+                <label for="name">Your Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required>
+
+                <label for="email">Your Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required>
+
+                <label for="subject">Subject</label>
+                <input
+                    type="text"
+                    id="subject"
+                    placeholder="Enter subject"
+                    required>
+
+                <label for="message">Your Message</label>
+                <textarea
+                    id="message"
+                    placeholder="Write your message..."
+                    required></textarea>
+
+                <button type="submit">Send Message ✉️</button>
+
+                <p id="message-status"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SOCIAL MEDIA -->
+<section class="social">
+
+    <h2>Follow Our Journey</h2>
+
+    <p>Stay connected and explore the universe with us.</p>
+
+    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    <a href="https://www.youtube.com/" target="_blank">YouTube</a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 <span>SpaceXplore</span>. All Rights Reserved.</p>
+    <p>Explore the Universe. Discover the Future. 🚀</p>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+
+    document.getElementById("message-status").textContent =
+        "Thank you, " + name + "! Your demo message has been received.";
+
+    this.reset();
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Education | SpaceXplore</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #050817;
+    color: white;
+    line-height: 1.6;
+}
+
+/* NAVIGATION */
+nav {
+    background: #080f25;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #24365d;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #36c5ff;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #36c5ff;
+}
+
+/* HERO */
+.hero {
+    min-height: 420px;
+    background:
+        linear-gradient(rgba(3,8,25,0.55), rgba(3,8,25,0.85)),
+        url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1800")
+        center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    color: #36c5ff;
+    text-shadow: 0 0 20px #168bc7;
+}
+
+.hero p {
+    font-size: 19px;
+    margin: 15px 0 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 30px;
+    background: #16b9f5;
+    color: #050817;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #805cff;
+    color: white;
+    transform: translateY(-4px);
+}
+
+/* COMMON SECTIONS */
+section {
+    padding: 65px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 34px;
+    color: #36c5ff;
+}
+
+.section-title p {
+    color: #c1cee8;
+    margin-top: 10px;
+}
+
+/* INTRO */
+.intro {
+    text-align: center;
+    max-width: 950px;
+    margin: auto;
+}
+
+.intro p {
+    color: #c1cee8;
+    font-size: 17px;
+}
+
+/* EDUCATION CARDS */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.edu-card {
+    background: #101b38;
+    border: 1px solid #263b66;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.edu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 22px rgba(54,197,255,0.25);
+}
+
+.edu-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.edu-content {
+    padding: 22px;
+}
+
+.edu-content h3 {
+    color: #36c5ff;
+    margin-bottom: 10px;
+}
+
+.edu-content p {
+    color: #c1cee8;
+    font-size: 15px;
+}
+
+/* FACTS */
+.facts {
+    background: #0a1229;
+}
+
+.fact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.fact {
+    background: #111e3c;
+    border: 1px solid #263b66;
+    padding: 25px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.fact h3 {
+    color: #36c5ff;
+    margin-bottom: 10px;
+}
+
+.fact p {
+    color: #c1cee8;
+}
+
+/* CAREERS */
+.career-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.career {
+    background: #101b38;
+    border: 1px solid #263b66;
+    border-radius: 12px;
+    padding: 25px 15px;
+    text-align: center;
+}
+
+.career .emoji {
+    font-size: 40px;
+}
+
+.career h3 {
+    color: #36c5ff;
+    margin: 12px 0;
+}
+
+.career p {
+    color: #c1cee8;
+    font-size: 14px;
+}
+
+/* CTA */
+.cta {
+    text-align: center;
+    background:
+        linear-gradient(rgba(5,8,23,0.8), rgba(5,8,23,0.9)),
+        url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1600")
+        center/cover;
+}
+
+.cta h2 {
+    font-size: 32px;
+    color: #36c5ff;
+    margin-bottom: 12px;
+}
+
+.cta p {
+    color: #d0ddf5;
+    margin-bottom: 25px;
+}
+
+/* FOOTER */
+footer {
+    background: #030611;
+    text-align: center;
+    padding: 25px;
+    color: #aab8d2;
+    border-top: 1px solid #24365d;
+}
+
+footer span {
+    color: #36c5ff;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .education-grid,
+    .fact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .career-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .education-grid,
+    .fact-grid,
+    .career-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 45px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">SPACE<span>XPLORE</span> 🚀</div>
+
+    <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="Education.html" class="active">Education</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+    <div>
+        <h1>SPACE EDUCATION</h1>
+        <p>Learn About Space, Discover New Worlds and Explore the Future.</p>
+        <a href="#learn" class="btn">Start Learning</a>
+    </div>
+</header>
+
+<!-- INTRODUCTION -->
+<section>
+    <div class="intro">
+        <div class="section-title">
+            <h2>Discover the Universe</h2>
+            <p>Knowledge is the key to exploring space.</p>
+        </div>
+
+        <p>
+            Space education helps us understand the universe, planets,
+            stars, galaxies and modern space technology. Through science
+            and exploration, we can discover how the universe works and
+            learn about the future of space travel.
+        </p>
+    </div>
+</section>
+
+<!-- LEARNING TOPICS -->
+<section id="learn">
+    <div class="section-title">
+        <h2>Explore Learning Topics</h2>
+        <p>Learn interesting facts about the universe.</p>
+    </div>
+
+    <div class="education-grid">
+
+        <div class="edu-card">
+            <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=700" alt="Solar System">
+            <div class="edu-content">
+                <h3>🌍 Solar System</h3>
+                <p>
+                    Learn about the Sun, eight planets, moons, asteroids
+                    and other objects in our Solar System.
+                </p>
+            </div>
+        </div>
+
+        <div class="edu-card">
+            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=700" alt="Stars and Galaxies">
+            <div class="edu-content">
+                <h3>✨ Stars & Galaxies</h3>
+                <p>
+                    Discover stars, nebulae, black holes and the amazing
+                    galaxies found throughout the universe.
+                </p>
+            </div>
+        </div>
+
+        <div class="edu-card">
+            <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=700" alt="Rocket Science">
+            <div class="edu-content">
+                <h3>🚀 Rocket Science</h3>
+                <p>
+                    Understand how rockets work, how they launch and
+                    how spacecraft travel into space.
+                </p>
+            </div>
+        </div>
+
+        <div class="edu-card">
+            <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=700" alt="Satellites">
+            <div class="edu-content">
+                <h3>🛰️ Satellites</h3>
+                <p>
+                    Learn how satellites help with communication,
+                    weather forecasting, navigation and Earth observation.
+                </p>
+            </div>
+        </div>
+
+        <div class="edu-card">
+            <img src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=700" alt="Astronomy">
+            <div class="edu-content">
+                <h3>🔭 Astronomy</h3>
+                <p>
+                    Explore the science of observing and studying
+                    planets, stars and other celestial objects.
+                </p>
+            </div>
+        </div>
+
+        <div class="edu-card">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=700" alt="Space Exploration">
+            <div class="edu-content">
+                <h3>👨‍🚀 Space Exploration</h3>
+                <p>
+                    Discover astronauts, space missions, space stations
+                    and humanity's journey beyond Earth.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SPACE FACTS -->
+<section class="facts">
+    <div class="section-title">
+        <h2>Interesting Space Facts</h2>
+        <p>Some amazing facts about our universe.</p>
+    </div>
+
+    <div class="fact-grid">
+
+        <div class="fact">
+            <h3>🌞 The Sun</h3>
+            <p>
+                The Sun is a star at the centre of our Solar System.
+                Earth receives light and heat from it.
+            </p>
+        </div>
+
+        <div class="fact">
+            <h3>🌌 The Milky Way</h3>
+            <p>
+                Our Solar System is located inside a galaxy
+                called the Milky Way.
+            </p>
+        </div>
+
+        <div class="fact">
+            <h3>🌙 The Moon</h3>
+            <p>
+                The Moon is Earth's natural satellite and
+                takes about 27.3 days to orbit Earth.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- SPACE CAREERS -->
+<section>
+    <div class="section-title">
+        <h2>Careers in Space Science</h2>
+        <p>Explore exciting career opportunities in space technology.</p>
+    </div>
+
+    <div class="career-grid">
+
+        <div class="career">
+            <div class="emoji">👨‍🚀</div>
+            <h3>Astronaut</h3>
+            <p>Travels into space to conduct scientific research and missions.</p>
+        </div>
+
+        <div class="career">
+            <div class="emoji">🔭</div>
+            <h3>Astronomer</h3>
+            <p>Studies stars, planets, galaxies and the universe.</p>
+        </div>
+
+        <div class="career">
+            <div class="emoji">🚀</div>
+            <h3>Aerospace Engineer</h3>
+            <p>Designs and develops aircraft, rockets and spacecraft.</p>
+        </div>
+
+        <div class="career">
+            <div class="emoji">🛰️</div>
+            <h3>Satellite Engineer</h3>
+            <p>Works with satellite design, communication and technology.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="cta">
+    <h2>Keep Exploring the Universe!</h2>
+    <p>
+        The universe is full of mysteries.
+        Start your journey and discover something new every day.
+    </p>
+    <a href="Contact.html" class="btn">Contact Us</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 <span>SpaceXplore</span>. All Rights Reserved.</p>
+    <p>Explore the Universe. Discover the Future. 🚀</p>
+</footer>
+
+</body>
+</html>
